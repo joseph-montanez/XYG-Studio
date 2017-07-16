@@ -364,6 +364,19 @@ void xyBindAllFunctions(HSQUIRRELVM v){
 
 	//Misc
 	xyBindFunc(v, sqEmbedTest, "xygTest");
+
+	//Physics
+	xyPrint(0, "Embedding physics...");
+	xyBindFunc(v, sqNewSpace, "newSpace");
+	xyBindFunc(v, sqDeleteSpace, "deleteSpace");
+	xyBindFunc(v, sqSpaceStep, "spaceStep", 3, ".nn");
+	xyBindFunc(v, sqSpaceSetGravity, "setSpaceGravity", 4, ".nnn");
+	xyBindFunc(v, sqSpaceAddBody, "spaceSetGravity", 3, ".nn");
+	xyBindFunc(v, sqNewBody, "newBody", 3, ".nn");
+	xyBindFunc(v, sqSpaceAddShape, "spaceAddShape", 3, ".nn");
+	xyBindFunc(v, spNewStaticBox, "newStaticBox", 6, ".nnnnn");
+	xyBindFunc(v, spShapeSetFriction, "setShapeFriction", 3, ".nn");
+
 };
 
 void xyUpdate(){

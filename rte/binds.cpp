@@ -11,6 +11,7 @@
 #include "text.h"
 #include "binds.h"
 #include "audio.h"
+#include "physics.h"
 
 //////////
 // MAIN //
@@ -596,3 +597,115 @@ SQInteger sqEmbedTest(HSQUIRRELVM v){
 
 	return 1;
 };
+
+
+/////////////
+// Physics //
+/////////////
+
+SQInteger sqNewSpace(HSQUIRRELVM v) {
+	sq_pushinteger(v, xyNewSpace());
+
+	return 1;
+};
+
+SQInteger sqDeleteSpace(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+
+	sq_getinteger(v, 2, &spaceIndex);
+
+	xyDeleteSpace(spaceIndex);
+
+	return 0;
+};
+
+SQInteger sqSpaceStep(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+	SQInteger timeStep;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getinteger(v, 3, &timeStep);
+
+	xySpaceStep(spaceIndex, timeStep);
+
+	return 0;
+};
+
+SQInteger sqSpaceSetGravity(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+	SQFloat gravity_x;
+	SQFloat gravity_y;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getfloat(v, 3, &gravity_x);
+	sq_getfloat(v, 4, &gravity_y);
+
+	xySetSpaceGravity(spaceIndex, gravity_x, gravity_y);
+
+	return 0;
+}
+
+SQInteger sqSpaceAddBody(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+	SQInteger bodyIndex;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getinteger(v, 3, &bodyIndex);
+
+	sq_pushinteger(v, xySpaceAddBody(spaceIndex, bodyIndex));
+
+	return 1;
+}
+
+SQInteger sqNewBody(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+	SQFloat mass;
+	SQFloat momentum;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getfloat(v, 3, &mass);
+	sq_getfloat(v, 4, &momentum);
+
+
+	sq_pushinteger(v, xyNewBody(mass, momentum));
+
+	return 1;
+}
+
+SQInteger sqSpaceAddShape(HSQUIRRELVM v) {
+	SQInteger spaceIndex;
+	SQInteger shapeIndex;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getinteger(v, 3, &shapeIndex);
+
+	sq_pushinteger(v, xySpaceAddShape(spaceIndex, shapeIndex));
+
+	return 1;
+}
+
+SQInteger spNewStaticBox(HSQUIRRELVM v) {
+	SQInteger spaceIndex, x, y, width, height;
+
+	sq_getinteger(v, 2, &spaceIndex);
+	sq_getinteger(v, 3, &x);
+	sq_getinteger(v, 4, &y);
+	sq_getinteger(v, 5, &width);
+	sq_getinteger(v, 6, &height);
+
+	sq_pushinteger(v, xyNewStaticBox(spaceIndex, x, y, width, height));
+
+	return 1;
+}
+
+SQInteger spShapeSetFriction(HSQUIRRELVM v) {
+	SQInteger shapeIndex;
+	SQFloat gravity;
+
+	sq_getinteger(v, 2, &shapeIndex);
+	sq_getfloat(v, 3, &gravity);
+
+	xyShapeSetFriction(shapeIndex, gravity);
+
+	return 0;
+}

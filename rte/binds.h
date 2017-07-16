@@ -75,4 +75,16 @@ SQInteger sqDeleteMusic(HSQUIRRELVM v);
 //Misc
 SQInteger sqEmbedTest(HSQUIRRELVM v);
 
+//Physics
+SQInteger sqNewSpace(HSQUIRRELVM v);
+SQInteger sqDeleteSpace(HSQUIRRELVM v);
+SQInteger sqSpaceStep(HSQUIRRELVM v);
+SQInteger sqSpaceSetGravity(HSQUIRRELVM v);
+SQInteger sqSpaceAddBody(HSQUIRRELVM v);
+SQInteger sqNewBody(HSQUIRRELVM v);
+SQInteger sqSpaceAddShape(HSQUIRRELVM v);
+SQInteger spNewStaticBox(HSQUIRRELVM v);
+SQInteger spShapeSetFriction(HSQUIRRELVM v);
+
+
 #endif

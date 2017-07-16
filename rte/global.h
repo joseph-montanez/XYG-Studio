@@ -43,6 +43,7 @@ extern Uint32 buttonlast[5];
 // Physics
 extern vector<cpSpace*> vcSpaces;
 extern vector<cpShape*> vcShapes;
+extern vector<cpBody*> vcBodies;
 
 
 #endif
