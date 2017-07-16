@@ -37,10 +37,12 @@ set(SOURCE_FILES
         main.h
         maths.cpp
         maths.h
+		physics.cpp
+		physics.h
         sprite.cpp
         sprite.h
         text.cpp
-        text.h physics.h physics.cpp)
+        text.h )
 
 configure_file(${CMAKE_SOURCE_DIR}/bin/xylib/core.nut ${CMAKE_BINARY_DIR}/bin/xylib/core.nut COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/bin/xylib/shapes.nut ${CMAKE_BINARY_DIR}/bin/xylib/shapes.nut COPYONLY)

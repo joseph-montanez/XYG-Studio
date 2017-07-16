@@ -39,3 +39,5 @@ vector<Uint8> keystate(322);
 vector<Uint8> keylast(322);
 Uint32 buttonstate[5];
 Uint32 buttonlast[5];
+vector<cpSpace*> vcSpaces;
+vector<cpShape*> vcShapes;

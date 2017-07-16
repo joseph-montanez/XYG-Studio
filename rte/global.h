@@ -40,7 +40,9 @@ extern vector<Uint8> keystate;
 extern vector<Uint8> keylast;
 extern Uint32 buttonstate[5];
 extern Uint32 buttonlast[5];
+// Physics
 extern vector<cpSpace*> vcSpaces;
+extern vector<cpShape*> vcShapes;
 
 
 #endif

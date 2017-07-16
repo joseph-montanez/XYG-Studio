@@ -9,6 +9,9 @@
 
 #include "main.h"
 
-Uint32 xyChipmunkSpaceNew();
+size_t xyNewSpace();
+bool xyHasPhysics(SQInteger index);
+void xySetGravity(SQInteger index, SQFloat x, SQFloat y);
+
 
 #endif //RTE_PHYSICS_H
