@@ -38,6 +38,7 @@
 #include <sqstdio.h>
 #include <sqstdaux.h>
 #include <sqstdmath.h>
+#include <chipmunk.h>
 
 using namespace std;
 

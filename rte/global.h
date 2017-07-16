@@ -22,7 +22,7 @@ extern Uint32 gvMaxFPS;
 extern Uint32 gvTicks;
 extern Uint32 gvTickLast;
 extern const char *gvVNo;					//XYRE version number
-extern const float pi;				//Pi
+extern const float gvPi;				//Pi
 extern bool gvClearScreen;			//Whether to clear the screen on update
 extern SDL_Event Event;				//Used for event handling
 extern vector<SDL_Texture*> vcTextures;		//Keeps track of user-created textures
@@ -40,6 +40,7 @@ extern vector<Uint8> keystate;
 extern vector<Uint8> keylast;
 extern Uint32 buttonstate[5];
 extern Uint32 buttonlast[5];
+extern vector<cpSpace*> vcSpaces;
 
 
 #endif
